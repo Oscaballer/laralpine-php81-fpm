@@ -6,12 +6,13 @@ LABEL Description="Container with Nginx 1.22.1-r0 & PHP-fpm 8.1.16-r0 Alpine 3.1
 RUN apk update && apk add --no-cache \
     bash \
     curl \
-    git \
     nginx \
     supervisor \
     libpng-dev \
     libzip-dev \
-    oniguruma-dev
+    oniguruma-dev \
+    wget \
+    nano
 
 # Install PHP and extensions
 RUN apk add --no-cache \
