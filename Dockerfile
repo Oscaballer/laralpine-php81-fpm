@@ -44,7 +44,7 @@ RUN apk add --no-cache \
   php81-sodium
 
 # Create symbolic links for PHP
-RUN ln -s /usr/bin/php81 /usr/bin/php && ln -s /etc/php81 /etc/php
+# RUN ln -s /usr/bin/php81 /usr/bin/php && ln -s /etc/php81 /etc/php
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
