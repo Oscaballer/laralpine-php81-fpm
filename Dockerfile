@@ -43,9 +43,6 @@ RUN apk add --no-cache \
   php81-soap \
   php81-sodium
 
-# Create symbolic links for PHP
-# RUN ln -s /usr/bin/php81 /usr/bin/php && ln -s /etc/php81 /etc/php
-
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 COPY config/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
@@ -59,7 +56,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-RUN chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx
+RUN chown -R nobody.nogroup /var/www/html /run /var/lib/nginx /var/log/nginx /tmp
 
 USER nobody
 
